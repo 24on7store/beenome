@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gender-Based Question Selection</title>
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+  <div id="form">
+    <label>Are you Male or Female?</label>
+    <select id="gender">
+      <option value="">Select</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+
+    <div id="nameInput" style="display: none;">
+      <label>Enter your name:</label>
+      <input type="text" id="name">
+      <button onclick="startQuestions()">Continue</button>
+    </div>
+  </div>
+
+  <div id="questionContainer" style="display: none;">
+    <h2>Select a Sentence</h2> 
+    <ul id="questionList"></ul>
+    <button onclick="submitAnswer()">Submit Answer</button>
+  </div>
+
+  <div id="resultContainer" style="display: none;">
+    <h3>Thank you! Your answer has been recorded.</h3>
+  </div>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>

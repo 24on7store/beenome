@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gender-Based Question App</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="introContainer">
+    <h2>Choose Your Gender and Enter Your Name</h2>
+    <label for="genderSelect">Gender:</label>
+    <select id="genderSelect">
+      <option value="">--Select--</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+    <br/><br/>
+    <label for="nameInput">Name:</label>
+    <input type="text" id="nameInput" placeholder="Your name" />
+    <br/><br/>
+    <button onclick="startQuestions()">Start</button>
+  </div>
+
+  <div id="questionContainer" class="hidden">
+    <h3>Pick the sentence that best fits you:</h3>
+    <ul id="questionList"></ul>
+    <br/>
+    <button onclick="submitAnswer()">Submit</button>
+  </div>
+
+  <div id="resultContainer" class="hidden">
+    <h3>Thank you! Your response has been saved.</h3>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+  <!-- Config and Main Logic -->
+  <script src="firebase/firebase-config.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
