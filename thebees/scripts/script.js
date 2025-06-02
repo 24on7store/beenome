@@ -35,10 +35,6 @@ const questions = [
   "17- My impact lingers even when I’ve left."
 ];
 
-
-// const sheetURL = 'https://script.google.com/macros/s/AKfycbxk4k7yQQXEJO80pPK7RK9wbo32q1qs-wwylmmK_b7yZXKtu00wbMmPBsqby1tq2lMI/exec';
-const sheetURL = 'https://script.google.com/macros/s/AKfycbyZS4mIkKgWEGYauZZ2s9Z0RWLRVyhKIrbIlHqoFAIbCQgqubszb-inm4Disej-E4CR/exec';
-
 let chosenAnswers = new Set();
 let currentSelection = null;
 let currentUser = {};
@@ -62,19 +58,7 @@ function startQuestions() {
   document.getElementById('form').style.display = 'none';
   document.getElementById('questionContainer').style.display = 'block';
 
-  // Fetch used answers from Google Apps Script Web App
-  fetch(sheetURL)
-    .then(res => res.json())
-    .then(data => {
-      if (Array.isArray(data.used)) {
-        data.used.forEach(idx => chosenAnswers.add(Number(idx)));
-      }
-      loadQuestions(gender);
-    })
-    .catch(err => {
-      console.error("Error fetching used answers:", err);
-      loadQuestions(gender); // fallback
-    });
+  loadQuestions(gender);
 }
 
 function loadQuestions(gender) {
@@ -93,7 +77,7 @@ function loadQuestions(gender) {
       li.dataset.index = index;
 
       if (chosenAnswers.has(index)) {
-        li.classList.add('disabled');  // disable if already chosen
+        li.classList.add('disabled');
       } else {
         li.addEventListener('click', () => selectQuestion(li));
       }
@@ -126,9 +110,58 @@ function submitAnswer() {
   const answerText = questions[index];
   const timestamp = new Date().toLocaleString();
 
+  // Google Sheets endpoint (replace with yours)
+  const sheetURL = 'https://script.google.com/macros/s/AKfycbxk4k7yQQXEJO80pPK7RK9wbo32q1qs-wwylmmK_b7yZXKtu00wbMmPBsqby1tq2lMI/exec';
+
+  // Save to Google Sheet
   fetch(sheetURL, {
     method: 'POST',
-    mode: 'no-cors', // or remove if you want to handle response
+    body: JSON.stringify({
+      name: currentUser.name,
+      gender: currentUser.gender,
+      index: index,
+      answer: answerText,
+      time: timestamp
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log("Data saved to Google Sheet:", data);
+  })
+  .catch(error => {
+    console.error("Error saving to Google Sheet:", error);
+  });
+
+  // Disable UI
+  document.querySelectorAll('#questionList li').forEach(li => {
+    li.classList.add('disabled');
+    li.removeEventListener('click', selectQuestion);
+  });
+
+  document.getElementById('questionContainer').style.display = 'none';
+  document.getElementById('resultContainer').style.display = 'block';
+}
+
+
+function submitAnswer() {
+  if (!currentSelection) {
+    alert("Please select a sentence before submitting.");
+    return;
+  }
+
+  const index = parseInt(currentSelection.dataset.index);
+  chosenAnswers.add(index);
+
+  const answerText = questions[index];
+  const timestamp = new Date().toLocaleString();
+
+  // ✅ Send data to Google Sheet via Apps Script Web App
+  fetch('https://script.google.com/macros/s/AKfycbxk4k7yQQXEJO80pPK7RK9wbo32q1qs-wwylmmK_b7yZXKtu00wbMmPBsqby1tq2lMI/exec', {
+    method: 'POST',
+    mode: 'no-cors',
     headers: {
       'Content-Type': 'application/json'
     },
@@ -139,13 +172,11 @@ function submitAnswer() {
       index: index,
       time: timestamp
     })
-  }).catch(err => {
-    console.error("Error saving to Google Sheet:", err);
   });
 
   console.log(`Saved: ${currentUser.name} (${currentUser.gender}) → "${answerText}"`);
 
-  // Disable all options after submit
+  // Disable all options and end session
   document.querySelectorAll('#questionList li').forEach(li => {
     li.classList.add('disabled');
     li.removeEventListener('click', selectQuestion);
