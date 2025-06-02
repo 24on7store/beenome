@@ -8,7 +8,7 @@ const questions = [
   "4- Change doesn't scare me when it comes in soft colors.",
   "4- My heart opens in seasons, never all at once.",
   "5- I like the little things that smile back at you.",
-  "5-I’m happiest when the world feels light and playful.",
+  "5- I’m happiest when the world feels light and playful.",
   "6- My peace often comes in silence.",
   "6- If I could bottle calm, I’d wear it every day.",
   "7- I bloom where I am least expected.",
@@ -35,7 +35,7 @@ const questions = [
   "17- My impact lingers even when I’ve left."
 ];
 
-const sheetURL = 'https://script.google.com/macros/s/AKfycbxk4k7yQQXEJO80pPK7RK9wbo32q1qs-wwylmmK_b7yZXKtu00wbMmPBsqby1tq2lMI/exec';
+const sheetURL = 'https://script.google.com/macros/s/YOUR_DEPLOYED_SCRIPT_ID/exec';
 
 let chosenAnswers = new Set();
 let currentSelection = null;
@@ -60,13 +60,11 @@ function startQuestions() {
   document.getElementById('form').style.display = 'none';
   document.getElementById('questionContainer').style.display = 'block';
 
-  // Fetch used answers from Google Apps Script Web App
+  // Fetch used answers first
   fetch(sheetURL)
     .then(res => res.json())
     .then(data => {
-      if (Array.isArray(data.used)) {
-        data.used.forEach(idx => chosenAnswers.add(Number(idx)));
-      }
+      data.used.forEach(idx => chosenAnswers.add(Number(idx)));
       loadQuestions(gender);
     })
     .catch(err => {
@@ -91,7 +89,7 @@ function loadQuestions(gender) {
       li.dataset.index = index;
 
       if (chosenAnswers.has(index)) {
-        li.classList.add('disabled');  // disable if already chosen
+        li.classList.add('disabled');
       } else {
         li.addEventListener('click', () => selectQuestion(li));
       }
@@ -126,29 +124,31 @@ function submitAnswer() {
 
   fetch(sheetURL, {
     method: 'POST',
-    mode: 'no-cors', // or remove if you want to handle response
-    headers: {
-      'Content-Type': 'application/json'
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       name: currentUser.name,
       gender: currentUser.gender,
-      answer: answerText,
       index: index,
+      answer: answerText,
       time: timestamp
     })
-  }).catch(err => {
-    console.error("Error saving to Google Sheet:", err);
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log("Response from server:", data);
+    if (data.result === "success") {
+      document.querySelectorAll('#questionList li').forEach(li => {
+        li.classList.add('disabled');
+        li.removeEventListener('click', selectQuestion);
+      });
+      document.getElementById('questionContainer').style.display = 'none';
+      document.getElementById('resultContainer').style.display = 'block';
+    } else {
+      alert("Error saving your answer. Please try again.");
+    }
+  })
+  .catch(err => {
+    console.error("Error sending data:", err);
+    alert("Error sending data to server.");
   });
-
-  console.log(`Saved: ${currentUser.name} (${currentUser.gender}) → "${answerText}"`);
-
-  // Disable all options after submit
-  document.querySelectorAll('#questionList li').forEach(li => {
-    li.classList.add('disabled');
-    li.removeEventListener('click', selectQuestion);
-  });
-
-  document.getElementById('questionContainer').style.display = 'none';
-  document.getElementById('resultContainer').style.display = 'block';
 }
