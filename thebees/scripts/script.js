@@ -1,5 +1,4 @@
 const questions = [
- 
   "1- I chase intensity, even when it hurts a little.",
   "2- Clean starts speak louder than perfect plans.",
   "2- I find strength in stillness and softness.",
