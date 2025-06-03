@@ -22,7 +22,7 @@ const questions = [
   "11- I protect my softness like a secret.",
   "11- Gentle doesn’t mean fragile.",
   "12- I’d rather whisper than echo.",
-  "12- Quiet presence is still presence.",
+  "12- Already Chosen.",
   "13- Already Chosen.",
   "13- Already Chosen.",
   "14- I live like summer never ends.",
