@@ -16,7 +16,7 @@ const questions = [
   "8- There’s beauty in being more than what meets the eye.",
   "8- Soft doesn't mean simple.",
   "9- I often speak in colors, not in noise.",
-  "8- Messages feel better when they’re subtle but sure.",
+  "9- Messages feel better when they’re subtle but sure.",
   "10- My warmth doesn't wait for an invitation.",
   "10- Joy should be loud and bold.",
   "11- I protect my softness like a secret.",
