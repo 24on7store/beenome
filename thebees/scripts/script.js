@@ -1,6 +1,6 @@
 const questions = [
   "1- Some things are worth holding, even if they come with a sting.",
-  "1- I chase intensity, even when it hurts a little.",
+  "1- Already Chosen",
   "2- Clean starts speak louder than perfect plans.",
   "2- I find strength in stillness and softness.",
   "3- I tend to stand taller when the light finds me.",
