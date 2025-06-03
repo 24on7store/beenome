@@ -9,7 +9,7 @@ const questions = [
   "4- My heart opens in seasons, never all at once.",
   "5- Already Chosen.",
   "5-I’m happiest when the world feels light and playful.",
-  "6- My peace often comes in silence.",
+  "6- Already Chosen.",
   "6- If I could bottle calm, I’d wear it every day.",
   "7- Already Chosen.",
   "7- Already Chosen.",
