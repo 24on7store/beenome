@@ -11,7 +11,7 @@ const questions = [
   "5-I’m happiest when the world feels light and playful.",
   "6- My peace often comes in silence.",
   "6- If I could bottle calm, I’d wear it every day.",
-  "7- I bloom where I am least expected.",
+  "7- Already Chosen.",
   "7- Already Chosen.",
   "8- There’s beauty in being more than what meets the eye.",
   "8- Soft doesn't mean simple.",
