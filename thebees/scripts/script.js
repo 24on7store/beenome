@@ -7,7 +7,7 @@ const questions = [
   "3- Joy feels like something I naturally lean toward.",
   "4- Change doesn't scare me when it comes in soft colors.",
   "4- My heart opens in seasons, never all at once.",
-  "5- I like the little things that smile back at you.",
+  "5- Already Chosen.",
   "5-I’m happiest when the world feels light and playful.",
   "6- My peace often comes in silence.",
   "6- If I could bottle calm, I’d wear it every day.",
