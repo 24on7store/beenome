@@ -12,7 +12,7 @@ const questions = [
   "6- My peace often comes in silence.",
   "6- If I could bottle calm, I’d wear it every day.",
   "7- I bloom where I am least expected.",
-  "7- I never shout, but I’m always noticed.",
+  "7- Already Chosen.",
   "8- There’s beauty in being more than what meets the eye.",
   "8- Soft doesn't mean simple.",
   "9- I often speak in colors, not in noise.",
