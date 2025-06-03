@@ -26,7 +26,7 @@ const questions = [
   "13- Elegance, to me, is how you carry silence.",
   "13- Strength wrapped in calm is still strength.",
   "14- I live like summer never ends.",
-  "14- I prefer moments that sizzle, not simmer.",
+  "14- Already Chosen.",
   "15- I open up when the world begins to close.",
   "15- I thrive when the days grow shorter.",
   "16- Every beginning has its own courage.",
