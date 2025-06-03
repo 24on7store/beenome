@@ -2,7 +2,7 @@ const questions = [
   "1- Some things are worth holding, even if they come with a sting.",
   "1- Already Chosen",
   "2- Clean starts speak louder than perfect plans.",
-  "2- I find strength in stillness and softness.",
+  "2- Already Chosen.",
   "3- I tend to stand taller when the light finds me.",
   "3- Joy feels like something I naturally lean toward.",
   "4- Change doesn't scare me when it comes in soft colors.",
