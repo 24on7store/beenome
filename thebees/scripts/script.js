@@ -13,7 +13,7 @@ const questions = [
   "6- If I could bottle calm, I’d wear it every day.",
   "7- Already Chosen.",
   "7- Already Chosen.",
-  "8- There’s beauty in being more than what meets the eye.",
+  "8- Already Chosen.",
   "8- Soft doesn't mean simple.",
   "9- I often speak in colors, not in noise.",
   "9- Messages feel better when they’re subtle but sure.",
