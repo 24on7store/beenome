@@ -31,7 +31,7 @@ const questions = [
   "15- I thrive when the days grow shorter.",
   "16- Every beginning has its own courage.",
   "6- I like being first — not for glory, but for hope.",
-  "17- You won’t notice me first, but you’ll remember me last.",
+  "17- Already Chosen.",
   "17- My impact lingers even when I’ve left."
 ];
 
