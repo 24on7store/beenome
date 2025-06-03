@@ -2,409 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gender-Based Question App</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beenome Question App</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div id="introContainer">
-    <h2>Choose Your Gender and Enter Your Name</h2>
-    <label for="genderSelect">Gender:</label>
-    <select id="genderSelect">
-      <option value="">--Select--</option>
+  <!-- Your HTML content here -->
+  <div id="form">
+    <label for="gender">Gender:</label>
+    <select id="gender">
+      <option value="">Select</option>
       <option value="male">Male</option>
       <option value="female">Female</option>
     </select>
-    <br/><br/>
-    <label for="nameInput">Name:</label>
-    <input type="text" id="nameInput" placeholder="Your name" />
-    <br/><br/>
-    <button onclick="startQuestions()">Start</button>
+
+    <div id="nameInput" style="display: none;">
+      <label for="name">Name:</label>
+      <input type="text" id="name" />
+      <button onclick="startQuestions()">Start</button>
+    </div>
   </div>
 
-  <div id="questionContainer" class="hidden">
-    <h3>Pick the sentence that best fits you:</h3>
+  <div id="questionContainer" style="display: none;">
     <ul id="questionList"></ul>
-    <br/>
     <button onclick="submitAnswer()">Submit</button>
   </div>
 
-  <div id="resultContainer" class="hidden">
-    <h3>Thank you! Your response has been saved.</h3>
-  </div>
-
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-
-  <!-- Config and Main Logic -->
-  <script src="firebase/firebase-config.js"></script>
-  <script src="js/script.js"></script>
-</body>
-</html>
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Gender-Based Question Selection</title>
-  <link rel="stylesheet" href="styles/styles.css">
-</head>
-<body>
-  <div id="form">
-    <label>Are you Male or Female?</label>
-    <select id="gender">
-      <option value="">Select</option>
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-    </select>
-
-    <div id="nameInput" style="display: none;">
-      <label>Enter your name:</label>
-      <input type="text" id="name">
-      <button onclick="startQuestions()">Continue</button>
-    </div>
-  </div>
-
-  <div id="questionContainer" style="display: none;">
-    <h2>Select a Sentence</h2> 
-    <ul id="questionList"></ul>
-    <button onclick="submitAnswer()">Submit Answer</button>
-  </div>
-
   <div id="resultContainer" style="display: none;">
-    <h3>Thank you! Your answer has been recorded.</h3>
+    <h3>Thank you for your answer!</h3>
   </div>
 
-  <script src="scripts/script.js"></script>
+  <!-- ✅ Firebase SDK and Config -->
+  <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+  import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyB94-Vb3M98uTkk3Fi2-RUriGW3dvnWMIs",
+    authDomain: "beenome-90d74.firebaseapp.com",
+    projectId: "beenome-90d74",
+    storageBucket: "beenome-90d74.appspot.com",
+    messagingSenderId: "880920638899",
+    appId: "1:880920638899:web:41abbb95d8d2505676c7c6",
+    measurementId: "G-D4Y3JQM5GC"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Make db available globally
+  window.db = db;
+  window.getDocs = getDocs;
+  window.collection = collection;
+  window.addDoc = addDoc;
+</script>
+
+  <!-- ✅ Your own script (must come after Firebase setup) -->
+  <script type="module" src="js/script.js"></script>
 </body>
 </html>
-
-
-
-
-<!-- APP SCRİPT -->
- function doPost(e) {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  const data = JSON.parse(e.postData.contents);
-
-  sheet.appendRow([
-    new Date(),          // Timestamp
-    data.name,           // Name
-    data.gender,         // Gender
-    data.index,          // Index
-    data.answer,         // Answer text
-    data.time            // User-facing timestamp
-  ]);
-
-  return ContentService.createTextOutput(
-    JSON.stringify({ result: "Success", data: data })
-  ).setMimeType(ContentService.MimeType.JSON);
-}
-
-
-
-<!-- HTML -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Gender-Based Question Selection</title>
-  <link rel="stylesheet" href="styles/styles.css">
-</head>
-<body>
-  <div id="form">
-    <label>Are you Male or Female?</label>
-    <select id="gender">
-      <option value="">Select</option>
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-    </select>
-
-    <div id="nameInput" style="display: none;">
-      <label>Enter your name:</label>
-      <input type="text" id="name">
-      <button onclick="startQuestions()">Continue</button>
-    </div>
-  </div>
-
-  <div id="questionContainer" style="display: none;">
-    <h2>Select a Sentence</h2> 
-    <ul id="questionList"></ul>
-    <button onclick="submitAnswer()">Submit Answer</button>
-  </div>
-
-  <div id="resultContainer" style="display: none;">
-    <h3>Thank you! Your answer has been recorded.</h3>
-  </div>
-
-  <script src="scripts/script.js"></script>
-</body>
-</html>
-
-<!-- CSS -->
-
-body {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  background-color: white;
-  width: auto;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  
-
-
-}
-ul {
-  list-style: none;
-  padding: 0;
-}
-li {
-  background: #fff;
-  justify-content: center;
-  text-align: left;
-  border: 1px solid #ccc;
-  margin: 10px 0;
-  padding: 15px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background 0.3s;
-}
-li:hover {
-  background: #e0f7fa;
-}
-li.selected {
-  background: #b2ebf2;
-  border-color: #0097a7;
-}
-li.disabled {
-  background: #eee;
-  color: #999;
-  cursor: not-allowed;
-}
-
-label{
-  font-size: 25px;
-  color:  #772432;
-  font-weight: 900;
-}
-
-button{
-  font-size: 20px;
-  background-color: #004165;
-  color: white;
-  padding: 5px 25px;
-  font-weight: 900;
-
-}
-
-button:hover {
-  background-color: #772432;
-  color: white;
-  font-size: 20px;
-  padding: 5px 25px;
-  font-weight: 900;
-}
-
-h2 {
-  color: #004165;
-  margin-bottom: 40px;
-  font-size: 40px;
-  font-weight: 900;
-
-}
-
-
-<!-- SCRİPT -->
-const questions = [
-  "1- Some things are worth holding, even if they come with a sting.",
-  "1- I chase intensity, even when it hurts a little.",
-  "2- Clean starts speak louder than perfect plans.",
-  "2- I find strength in stillness and softness.",
-  "3- I tend to stand taller when the light finds me.",
-  "3- Joy feels like something I naturally lean toward.",
-  "4- Change doesn't scare me when it comes in soft colors.",
-  "4- My heart opens in seasons, never all at once.",
-  "5- I like the little things that smile back at you.",
-  "5-I’m happiest when the world feels light and playful.",
-  "6- My peace often comes in silence.",
-  "6- If I could bottle calm, I’d wear it every day.",
-  "7- I bloom where I am least expected.",
-  "7- I never shout, but I’m always noticed.",
-  "8- There’s beauty in being more than what meets the eye.",
-  "8- Soft doesn't mean simple.",
-  "9- I often speak in colors, not in noise.",
-  "8- Messages feel better when they’re subtle but sure.",
-  "10- My warmth doesn't wait for an invitation.",
-  "10- Joy should be loud and bold.",
-  "11- I protect my softness like a secret.",
-  "11- Gentle doesn’t mean fragile.",
-  "12- I’d rather whisper than echo.",
-  "12- Quiet presence is still presence.",
-  "13- Elegance, to me, is how you carry silence.",
-  "13- Strength wrapped in calm is still strength.",
-  "14- I live like summer never ends.",
-  "14- I prefer moments that sizzle, not simmer.",
-  "15- I open up when the world begins to close.",
-  "15- I thrive when the days grow shorter.",
-  "16- Every beginning has its own courage.",
-  "6- I like being first — not for glory, but for hope.",
-  "17- You won’t notice me first, but you’ll remember me last.",
-  "17- My impact lingers even when I’ve left."
-];
-
-let chosenAnswers = new Set();
-let currentSelection = null;
-let currentUser = {};
-
-document.getElementById('gender').addEventListener('change', function () {
-  if (this.value) {
-    document.getElementById('nameInput').style.display = 'block';
-  }
-});
-
-function startQuestions() {
-  const gender = document.getElementById('gender').value;
-  const name = document.getElementById('name').value.trim();
-
-  if (!name) {
-    alert("Please enter your name.");
-    return;
-  }
-
-  currentUser = { name, gender };
-  document.getElementById('form').style.display = 'none';
-  document.getElementById('questionContainer').style.display = 'block';
-
-  loadQuestions(gender);
-}
-
-function loadQuestions(gender) {
-  const list = document.getElementById('questionList');
-  list.innerHTML = "";
-
-  const isMale = gender === 'male';
-
-  questions.forEach((text, index) => {
-    const questionNumber = index + 1;
-    const isEligible = isMale ? questionNumber % 2 === 0 : questionNumber % 2 !== 0;
-
-    if (isEligible) {
-      const li = document.createElement('li');
-      li.textContent = text;
-      li.dataset.index = index;
-
-      if (chosenAnswers.has(index)) {
-        li.classList.add('disabled');
-      } else {
-        li.addEventListener('click', () => selectQuestion(li));
-      }
-
-      list.appendChild(li);
-    }
-  });
-}
-
-function selectQuestion(li) {
-  if (li.classList.contains('disabled')) return;
-
-  if (currentSelection) {
-    currentSelection.classList.remove('selected');
-  }
-
-  li.classList.add('selected');
-  currentSelection = li;
-}
-
-function submitAnswer() {
-  if (!currentSelection) {
-    alert("Please select a sentence before submitting.");
-    return;
-  }
-
-  const index = parseInt(currentSelection.dataset.index);
-  chosenAnswers.add(index);
-
-  const answerText = questions[index];
-  const timestamp = new Date().toLocaleString();
-
-  // Google Sheets endpoint (replace with yours)
-  const sheetURL = 'https://script.google.com/macros/s/AKfycbxk4k7yQQXEJO80pPK7RK9wbo32q1qs-wwylmmK_b7yZXKtu00wbMmPBsqby1tq2lMI/exec';
-
-  // Save to Google Sheet
-  fetch(sheetURL, {
-    method: 'POST',
-    body: JSON.stringify({
-      name: currentUser.name,
-      gender: currentUser.gender,
-      index: index,
-      answer: answerText,
-      time: timestamp
-    }),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log("Data saved to Google Sheet:", data);
-  })
-  .catch(error => {
-    console.error("Error saving to Google Sheet:", error);
-  });
-
-  // Disable UI
-  document.querySelectorAll('#questionList li').forEach(li => {
-    li.classList.add('disabled');
-    li.removeEventListener('click', selectQuestion);
-  });
-
-  document.getElementById('questionContainer').style.display = 'none';
-  document.getElementById('resultContainer').style.display = 'block';
-}
-
-
-function submitAnswer() {
-  if (!currentSelection) {
-    alert("Please select a sentence before submitting.");
-    return;
-  }
-
-  const index = parseInt(currentSelection.dataset.index);
-  chosenAnswers.add(index);
-
-  const answerText = questions[index];
-  const timestamp = new Date().toLocaleString();
-
-  // ✅ Send data to Google Sheet via Apps Script Web App
-  fetch('https://script.google.com/macros/s/AKfycbxk4k7yQQXEJO80pPK7RK9wbo32q1qs-wwylmmK_b7yZXKtu00wbMmPBsqby1tq2lMI/exec', {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      name: currentUser.name,
-      gender: currentUser.gender,
-      answer: answerText,
-      index: index,
-      time: timestamp
-    })
-  });
-
-  console.log(`Saved: ${currentUser.name} (${currentUser.gender}) → "${answerText}"`);
-
-  // Disable all options and end session
-  document.querySelectorAll('#questionList li').forEach(li => {
-    li.classList.add('disabled');
-    li.removeEventListener('click', selectQuestion);
-  });
-
-  document.getElementById('questionContainer').style.display = 'none';
-  document.getElementById('resultContainer').style.display = 'block';
-}
