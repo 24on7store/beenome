@@ -24,13 +24,13 @@ const questions = [
   "12- I’d rather whisper than echo.",
   "12- Quiet presence is still presence.",
   "13- Elegance, to me, is how you carry silence.",
-  "13- Strength wrapped in calm is still strength.",
+  "13- Already Chosen.",
   "14- I live like summer never ends.",
   "14- Already Chosen.",
   "15- I open up when the world begins to close.",
   "15- I thrive when the days grow shorter.",
-  "16- Every beginning has its own courage.",
-  "6- I like being first — not for glory, but for hope.",
+  "16- Already Chosen.",
+  "16- I like being first — not for glory, but for hope.",
   "17- Already Chosen.",
   "17- My impact lingers even when I’ve left."
 ];
