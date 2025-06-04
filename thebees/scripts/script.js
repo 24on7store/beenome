@@ -20,7 +20,7 @@ const questions = [
   "10- My warmth doesn't wait for an invitation.",
   "10- Joy should be loud and bold.",
   "11- Already Chosen.",
-  "11- Gentle doesn’t mean fragile.",
+  "11- Already Chosen.",
   "12- Already Chosen.",
   "12- Already Chosen.",
   "13- Already Chosen.",
