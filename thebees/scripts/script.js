@@ -21,7 +21,7 @@ const questions = [
   "10- Joy should be loud and bold.",
   "11- Already Chosen.",
   "11- Gentle doesn’t mean fragile.",
-  "12- I’d rather whisper than echo.",
+  "12- Already Chosen.",
   "12- Already Chosen.",
   "13- Already Chosen.",
   "13- Already Chosen.",
