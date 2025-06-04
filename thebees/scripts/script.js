@@ -27,7 +27,7 @@ const questions = [
   "13- Already Chosen.",
   "14- I live like summer never ends.",
   "14- Already Chosen.",
-  "15- I open up when the world begins to close.",
+  "15- Already Chosen.",
   "15- I thrive when the days grow shorter.",
   "16- Already Chosen.",
   "16- I like being first — not for glory, but for hope.",
