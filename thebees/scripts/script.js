@@ -3,7 +3,7 @@ const questions = [
   "1- Already Chosen",
   "2- Already Chosen.",
   "2- Already Chosen.",
-  "3- I tend to stand taller when the light finds me.",
+  "3- Already Chosen.",
   "3- Joy feels like something I naturally lean toward.",
   "4- Already Chosen.",
   "4- Already Chosen.",
