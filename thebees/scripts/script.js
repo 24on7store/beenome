@@ -1,7 +1,7 @@
 const questions = [
   "1- Some things are worth holding, even if they come with a sting.",
   "1- Already Chosen",
-  "2- Clean starts speak louder than perfect plans.",
+  "2- Already Chosen.",
   "2- Already Chosen.",
   "3- I tend to stand taller when the light finds me.",
   "3- Joy feels like something I naturally lean toward.",
@@ -19,7 +19,7 @@ const questions = [
   "9- Messages feel better when they’re subtle but sure.",
   "10- My warmth doesn't wait for an invitation.",
   "10- Joy should be loud and bold.",
-  "11- I protect my softness like a secret.",
+  "11- Already Chosen.",
   "11- Gentle doesn’t mean fragile.",
   "12- I’d rather whisper than echo.",
   "12- Already Chosen.",
