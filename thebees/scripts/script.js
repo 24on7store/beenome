@@ -30,7 +30,7 @@ const questions = [
   "15- Already Chosen.",
   "15- I thrive when the days grow shorter.",
   "16- Already Chosen.",
-  "16- I like being first — not for glory, but for hope.",
+  "16- Already Chosen.",
   "17- Already Chosen.",
   "17- My impact lingers even when I’ve left."
 ];
