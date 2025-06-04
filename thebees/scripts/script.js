@@ -4,7 +4,7 @@ const questions = [
   "2- Already Chosen.",
   "2- Already Chosen.",
   "3- Already Chosen.",
-  "3- Joy feels like something I naturally lean toward.",
+  "3- Already Chosen.",
   "4- Already Chosen.",
   "4- Already Chosen.",
   "5- Already Chosen.",
