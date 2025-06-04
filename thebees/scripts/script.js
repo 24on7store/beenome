@@ -6,7 +6,7 @@ const questions = [
   "3- I tend to stand taller when the light finds me.",
   "3- Joy feels like something I naturally lean toward.",
   "4- Change doesn't scare me when it comes in soft colors.",
-  "4- My heart opens in seasons, never all at once.",
+  "4- Already Chosen.",
   "5- Already Chosen.",
   "5-I’m happiest when the world feels light and playful.",
   "6- Already Chosen.",
