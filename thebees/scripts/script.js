@@ -18,7 +18,7 @@ const questions = [
   "9- I often speak in colors, not in noise.",
   "9- Messages feel better when they’re subtle but sure.",
   "10- Already Chosen.",
-  "10- Joy should be loud and bold.",
+  "10- Already Chosen.",
   "11- Already Chosen.",
   "11- Already Chosen.",
   "12- Already Chosen.",
