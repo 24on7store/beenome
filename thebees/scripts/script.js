@@ -12,7 +12,7 @@ const questions = [
   "6- Already Chosen.",
   "6- Already Chosen.",
   "7- Already Chosen.",
-  "7- Already Chosen.",
+  "7- Soft doesn't mean simple.",
   "8- Already Chosen.",
   "8- Already Chosen.",
   "9- I often speak in colors, not in noise.",
