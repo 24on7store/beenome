@@ -32,7 +32,7 @@ const questions = [
   "16- Already Chosen.",
   "16- Already Chosen.",
   "17- Already Chosen.",
-  "17- My impact lingers even when I’ve left."
+  "17- Already Chosen."
 ];
 
 let chosenAnswers = new Set();
