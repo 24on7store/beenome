@@ -1,6 +1,6 @@
 const questions = [
   "1- Already Chosen.",
-  "1- Already Chosen",
+  "1- Already Chosen.",
   "2- Already Chosen.",
   "2- Already Chosen.",
   "3- Already Chosen.",
