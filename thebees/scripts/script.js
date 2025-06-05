@@ -1,5 +1,5 @@
 const questions = [
-  "1- Some things are worth holding, even if they come with a sting.",
+  "1- Already Chosen.",
   "1- Already Chosen",
   "2- Already Chosen.",
   "2- Already Chosen.",
@@ -14,7 +14,7 @@ const questions = [
   "7- Already Chosen.",
   "7- Already Chosen.",
   "8- Already Chosen.",
-  "8- Soft doesn't mean simple.",
+  "8- Already Chosen.",
   "9- I often speak in colors, not in noise.",
   "9- Messages feel better when they’re subtle but sure.",
   "10- Already Chosen.",
