@@ -15,7 +15,7 @@ const questions = [
   "7- Already Chosen.",
   "8- Already Chosen.",
   "8- Soft doesn't mean simple.",
-  "9- I often speak in colors, not in noise.",
+  "9- Already Chosen.",
   "9- Messages feel better when they’re subtle but sure.",
   "10- Already Chosen.",
   "10- Already Chosen.",
