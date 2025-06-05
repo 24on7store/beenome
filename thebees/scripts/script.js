@@ -25,7 +25,7 @@ const questions = [
   "12- Already Chosen.",
   "13- Already Chosen.",
   "13- Already Chosen.",
-  "14- I live like summer never ends.",
+  "14- Already Chosen.",
   "14- Already Chosen.",
   "15- Already Chosen.",
   "15- I thrive when the days grow shorter.",
