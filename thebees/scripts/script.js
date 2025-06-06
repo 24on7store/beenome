@@ -16,7 +16,7 @@ const questions = [
   "8- Already Chosen.",
   "8- Already Chosen.",
   "9- Already Chosen.",
-  "9- Messages feel better when they’re subtle but sure.",
+  "9- Already Chosen.",
   "10- Already Chosen.",
   "10- Already Chosen.",
   "11- Already Chosen.",
